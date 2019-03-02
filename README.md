@@ -16,7 +16,7 @@ Now use the program `jellyfish` to count the kmers in this sequence and print th
 cat example.fasta | jellyfish count /dev/fd/0 -s 256 -m 5 -o non-canonical.jf && jellyfish dump non-canonical.jf 
 ```
 
-Now lets look at what adding the -C flag does (canonical kmers are collapsed).
+Now lets look at what adding the -C flag does (canonical=reverse/complemented kmers are combined).
 ```
 cat example.fasta | jellyfish count /dev/fd/0 -C -s 256 -m 5 -o canonical.jf && jellyfish dump canonical.jf 
 ```
