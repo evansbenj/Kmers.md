@@ -33,12 +33,11 @@ more histogram.txt
 ```
 
 Let's plot it. Please download this file to your computer
-
 ```
 scp username@info.mcmaster.ca:/scratch/Bio722_BJE/*.txt .
-``
+```
 
-In R, please setwd('path') and plot the histogram like this:
+In R, please set your working directory (`setwd('path')`) and plot the `test_histogram.txt` data like this:
 ```
 dat<-read.table("test_histogram.txt")
 hist<-plot(dat$V1, dat$V2, type = "h", lwd = 10, ylim=c(0,5), xlab="Count", ylab="Occurrence") 
