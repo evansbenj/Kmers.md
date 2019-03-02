@@ -10,7 +10,7 @@ Please use a text editor to make a fasta file called `example.fasta` that contai
 CCCCCCCCGGGGGGGG
 ```
 
-Now use the program `jellyfish` to count the kmers in this sequence and print them
+Now use the program `jellyfish` to count the kmers in this sequence using the `count` option, and then print them using the `dump` option.
 
 ```
 cat example.fasta | jellyfish count /dev/fd/0 -s 256 -m 5 -o non-canonical.jf && jellyfish dump non-canonical.jf 
@@ -20,4 +20,17 @@ Now lets look at what adding the -C flag does (canonical=reverse/complemented km
 ```
 cat example.fasta | jellyfish count /dev/fd/0 -C -s 256 -m 5 -o canonical.jf && jellyfish dump canonical.jf 
 ```
+
+Now lets make a histogram of these counts.  This histogram will show us how many times rare k-mers are observed and how many times common k-mers are observed.
+
+```
+jellyfish histo -o histogram.txt canonical.jf 
+```
+
+Please check out the output:
+```
+more histogram.txt
+```
+
+Let's plot it
 
