@@ -46,7 +46,7 @@ Please check that this makes sense.
 
 Now we can also look at data from entire genomes.  You probably already downloaded two additional files that were in the info directory (`biggenome_hist.txt` and `smaller_genome_hist.txt`).
 
-You can plot each one like this:
+You can plot each one like this (ignoring the tail for now):
 ```
 dat <-read.table("biggenome_hist.txt")
 hist<-plot(dat$V1, dat$V2, type = "h", lwd = 3,xlim=c(0,40),ylim=c(0,5e8), xlab="Count", ylab="Occurrence") 
@@ -56,4 +56,14 @@ dat <-read.table("smaller_genome_hist.txt")
 hist<-plot(dat$V1, dat$V2, type = "h", lwd = 3,xlim=c(0,40),ylim=c(0,5e8), xlab="Count", ylab="Occurrence") 
 ```
 
+## Estimation of genome size and coverage
+
+We can use k-mer distributions to get a rough idea of genome size and depth of coverage because the total number of k-mers is a good approximation of genome size.  To get the total number of k-mers, we need to multiply the number of times k-mers occur by the number of k-mers that occurred that amount of times. First let's look at the infrequent k-mers, which are mostly errors. 
+```
+head(dat)
+```
+for both datasets, there are lots of kmers that are observed only once or twice. Let's ignore those.
+```
+sum(as.numeric(dat[3:10001,1])*as.numeric(dat[3:10001,2]))
+```
 
