@@ -48,7 +48,8 @@ Please check that this makes sense.
 Now we can also look at data from entire genomes.  You probably already downloaded two additional files that were in the info directory (`biggenome_hist.txt` and `smaller_genome_hist.txt`).
 
 You can plot each one like this:
-```dat <-read.table("biggenome_hist.txt")
+```
+dat <-read.table("biggenome_hist.txt")
 hist<-plot(dat$V1, dat$V2, type = "h", lwd = 3,xlim=c(0,40),ylim=c(0,5e8), xlab="Count", ylab="Occurrence") 
 ```
 ```
