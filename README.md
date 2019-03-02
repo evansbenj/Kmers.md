@@ -18,6 +18,6 @@ cat example.fasta | jellyfish count /dev/fd/0 -s 256 -m 5 -o non-canonical.jf &&
 
 Now lets look at what adding the -C flag does (canonical kmers are collapsed).
 ```
-cat example.fasta | jellyfish count /dev/fd/0 -C -s 256 -m 5 -o non-canonical.jf && jellyfish dump non-canonical.jf 
+cat example.fasta | jellyfish count /dev/fd/0 -C -s 256 -m 5 -o canonical.jf && jellyfish dump canonical.jf 
 ```
 
