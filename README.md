@@ -62,8 +62,18 @@ We can use k-mer distributions to get a rough idea of genome size and depth of c
 ```
 head(dat)
 ```
-for both datasets, there are lots of kmers that are observed only once or twice. Let's ignore those.
+for both datasets, there are lots of kmers that are observed only once or twice. Let's ignore those. The total number of kmers can be calculated as follows:
 ```
 sum(as.numeric(dat[3:10001,1])*as.numeric(dat[3:10001,2]))
 ```
+But because each position is covered by more than one read (on average), we need to divide this value by the coverage to get the genome size.  This can be estimated from the peak in the k-mer distribution:
+```
+dat[3:20,]
+```
+For the large genome, the coverage is ~15X and for the smaller genome, the coverage is ~13X.  So the genome size of each is:
+```
+sum(as.numeric(dat[3:10001,1])*as.numeric(dat[3:10001,2]))/dat$V1[dat$V2==max(dat[3:20,])]
+```
+As you can see these crude estimates fall short, probably do to various technical issues (such as patchy or biased sequence coverage).
+
 
