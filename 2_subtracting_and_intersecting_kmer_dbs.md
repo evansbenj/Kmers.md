@@ -2,6 +2,12 @@
 
 OK, let's mess around with some k-mers from an African claed frog species in the genus *Xenopus*
 
+# Extract a scaffold for analysis
+
+We can extract the scaffold corresponding to the sex chromosome like this:
+```
+ perl -ne 'if(/^>(\S+)/){$c=grep{/^$1$/}qw(Chr8L)}print if $c' Xbo.v1.fa > XB_Chr8L.fasta 
+```
 
 # Split up the fasta file
  I wrote a script to split up a fasta file into smaller files that are consecutively named, each with a defined length. The file is called `Split_fasta.pl`:
