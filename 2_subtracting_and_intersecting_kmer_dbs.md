@@ -10,14 +10,7 @@ We can extract the scaffold corresponding to the sex chromosome like this:
 ```
 
 # Split up the fasta file
- I wrote a script to split up a fasta file into smaller files that are consecutively named, each with a defined length. The file is called `Split_fasta.pl` (below). To make the bits about 1/100th of the total length of the chr, I first checked how many lines the chr is like this:
- ```
- wc -l XB_Chr8L.fasta
- ```
-Then I used a value of 20640 as the length of each fasta file that I wanted:
-```
-./Split_fasta.pl XB_Chr8L.fasta 20640 chr8L_bits
-```
+ I wrote a script to split up a fasta file into smaller files that are consecutively named, each with a defined length. The file is called `Split_fasta.pl` (below). 
  
 ```
 #!/usr/bin/env perl
@@ -84,4 +77,12 @@ while ( my $line = <DATAINPUT>) {
 	}
 }		
 
+```
+To make the bits about 1/100th of the total length of the chr, I first checked how many lines the chr is like this:
+ ```
+ wc -l XB_Chr8L.fasta
+ ```
+Then I used a value of 20640 as the length of each fasta file that I wanted:
+```
+./Split_fasta.pl XB_Chr8L.fasta 20640 chr8L_bits
 ```
