@@ -55,7 +55,11 @@ Please check that this makes sense.
 
 
 # Real data
-Now we can also look at data from entire genomes.  You probably already downloaded two additional files that were in the info directory (`biggenome_hist.txt` and `smaller_genome_hist.txt`).
+Now let's look at kmer distributions from WGS data from the genomes of the largest mammalian genome and a close relative with half of the genome size.  You can downloaded two additional files to your computer like this:
+```
+scp username@info.mcmaster.ca:/scratch/Bio722_BJE/*genome*txt
+```
+You now should have two files (`biggenome_hist.txt` and `smaller_genome_hist.txt`)
 
 You can plot each one like this (ignoring the tail for now):
 ```
