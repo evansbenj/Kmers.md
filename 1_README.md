@@ -4,6 +4,15 @@ This repository is a tutorial about kmers.
 
 ## Kmers in a simple string
 
+Please connect to info and make a temporary directory in /2/scratch/
+```
+ssh username@info.mcmaster.ca
+ssh info113
+cd /2/scratch/username/
+mkdir temp
+cd temp
+```
+
 Please use a text editor to make a fasta file called `example.fasta` that contains one sequence and looks like this:
 ```
 >example
