@@ -102,3 +102,18 @@ tail(dat)
 ```
 
 You can see both of these histograms have binned the counts of all kmers with >= 10001 abundances in the 10001 abundance bin. What do these counts tell us about the relative abundances of repetive elements in these two species?
+
+## What proportion of the genome is not repetitive?
+
+We can estimate the proportion of the genome that is not repetitive based on the proportion of the kmer histogram that roughly matches the Poisson expectation (say, the part greater than a coverage of 2 but less than a coverage of 40) and then dividing this by the genome size calculated from the total kmer histogram.
+
+The non-repetitive portion is 
+```
+sum(as.numeric(dat[3:40,1])*as.numeric(dat[3:40,2]))/dat$V1[dat$V2==max(dat[3:20,])]
+```
+
+And the proportion of non-repetitive elements in the whole genoem is therefore:
+```
+sum(as.numeric(dat[3:40,1])*as.numeric(dat[3:40,2]))/sum(as.numeric(dat[3:10001,1])*as.numeric(dat[3:10001,2]))
+```
+How do these proportions differ for the big and the small genomes?
