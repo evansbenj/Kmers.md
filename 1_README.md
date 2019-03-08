@@ -91,4 +91,14 @@ sum(as.numeric(dat[3:10001,1])*as.numeric(dat[3:10001,2]))/dat$V1[dat$V2==max(da
 ```
 As you can see these crude estimates fall short, probably do to various technical issues (such as patchy or biased sequence coverage).
 
+## Evidence of polyploidy and/or repetitive elements?
 
+In the plots we made, there was no obvious signal of bimodality, which would be expected for a recent polyploid.  What about repettive elements?  Let's look at the tails of these distributions...
+```
+dat <-read.table("smaller_genome_hist.txt")
+tail(dat)
+dat <-read.table("biggenome_hist.txt")
+tail(dat)
+```
+
+You can see both of these histograms have binned the counts of all kmers with >= 10001 abundances in the 10001 abundance bin. What do these counts tell us about the relative abundances of repetive elements in these two species?
